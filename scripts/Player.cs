@@ -6,6 +6,9 @@ public partial class Player : Area2D
     [Export]
     public int Speed { get; set; } = 400;
 
+    [Signal]
+    public delegate void HitEventHandler();
+
     public Vector2 ScreenSize;
     
 	// Called when the node enters the scene tree for the first time.
@@ -69,5 +72,19 @@ public partial class Player : Area2D
             animatedSprite2D.Animation = "up";
             animatedSprite2D.FlipV = velocity.Y > 0;
         }
+    }
+
+    private void OnBodyEntered(Node2D body)
+    {
+        Hide();
+        EmitSignal(SignalName.Hit);
+        GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
+    }
+
+    public void Start(Vector2 position)
+    {
+        Position = position;
+        Show();
+        GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
     }
 }
