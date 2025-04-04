@@ -1,8 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfuvv4m0dno5g"]
+[gd_scene load_steps=5 format=3 uid="uid://bfuvv4m0dno5g"]
 
 [ext_resource type="PackedScene" uid="uid://dl0tcafpqjud" path="res://scenes/Player.tscn" id="1_ibkli"]
+[ext_resource type="Script" uid="uid://ctod4c30fbm7v" path="res://scripts/Game.cs" id="1_qbsmt"]
+[ext_resource type="PackedScene" uid="uid://ce03kryfnvp8f" path="res://scenes/Enemy.tscn" id="2_cpr0p"]
+
+[sub_resource type="Curve2D" id="Curve2D_cpr0p"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1152, 0, 0, 0, 0, 0, 1152, 648, 0, 0, 0, 0, 0, 648, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
 
 [node name="Game" type="Node"]
+script = ExtResource("1_qbsmt")
+EnemyScene = ExtResource("2_cpr0p")
 
 [node name="Player" parent="." instance=ExtResource("1_ibkli")]
 
@@ -16,4 +26,9 @@ wait_time = 3.0
 one_shot = true
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(548, 328)
+position = Vector2(545, 328)
+
+[node name="EnemyPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_cpr0p")
+
+[node name="EnemySpawnLocation" type="PathFollow2D" parent="EnemyPath"]
