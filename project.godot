@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Godot Test"
+run/main_scene="uid://bfuvv4m0dno5g"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://arts/icon.svg"
 

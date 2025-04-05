@@ -32,3 +32,7 @@ position = Vector2(545, 328)
 curve = SubResource("Curve2D_cpr0p")
 
 [node name="EnemySpawnLocation" type="PathFollow2D" parent="EnemyPath"]
+
+[connection signal="timeout" from="EnemyTimer" to="." method="OnEnemyTimerTimeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="OnScoreTimerTimeout"]
+[connection signal="timeout" from="StartTimer" to="." method="OnStartTimerTimeout"]
