@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Net.Sockets;
 
-public partial class Hud : CanvasLayer
+public partial class HUD : CanvasLayer
 {
     [Signal]
     public delegate void StartGameEventHandler();

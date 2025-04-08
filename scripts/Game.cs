@@ -23,6 +23,11 @@ public partial class Game : Node
         
         player.Start(startPosition.Position);
         GetNode<Timer>("StartTimer").Start();
+
+        var hud = GetNode<HUD>("HUD");
+        hud.UpdateScore(_score);
+
+
     }
 
     private void OnScoreTimerTimeout()
