@@ -36,6 +36,7 @@ curve = SubResource("Curve2D_cpr0p")
 
 [node name="HUD" parent="." instance=ExtResource("4_78awf")]
 
+[connection signal="Hit" from="Player" to="." method="GameOver"]
 [connection signal="timeout" from="EnemyTimer" to="." method="OnEnemyTimerTimeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="OnScoreTimerTimeout"]
 [connection signal="timeout" from="StartTimer" to="." method="OnStartTimerTimeout"]
