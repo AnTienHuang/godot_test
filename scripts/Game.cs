@@ -56,9 +56,11 @@ public partial class Game : Node
         enemySpawnLocation.ProgressRatio = GD.Randf();
         
         // Set enemy's direction (Perpendicular to the path direction)
-        float direction = enemySpawnLocation.Rotation + Mathf.Pi / 2;
+        var player = GetNode<Player>("Player");
+        Vector2 toPlayer = player.GlobalPosition - enemy.GlobalPosition;
+        float direction = toPlayer.Angle();  // Gets angle in radians toward the player
         // Add randomness to the direction
-        direction += (float)GD.RandRange(-Mathf.Pi / 6, Mathf.Pi / 6);
+        direction += (float)GD.RandRange(-Mathf.Pi / 12, Mathf.Pi / 12);
         enemy.Rotation = direction;
 
         // Set velocity
