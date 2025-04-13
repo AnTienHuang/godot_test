@@ -58,7 +58,7 @@ public partial class Game : Node
         // Set enemy's direction (Perpendicular to the path direction)
         float direction = enemySpawnLocation.Rotation + Mathf.Pi / 2;
         // Add randomness to the direction
-        direction += (float)GD.RandRange(-Mathf.Pi / 4, Mathf.Pi / 4);
+        direction += (float)GD.RandRange(-Mathf.Pi / 6, Mathf.Pi / 6);
         enemy.Rotation = direction;
 
         // Set velocity
